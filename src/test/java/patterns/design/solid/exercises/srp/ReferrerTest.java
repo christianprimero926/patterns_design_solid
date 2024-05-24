@@ -13,16 +13,16 @@ class ReferrerTest {
     void test() {
         Referrer r = new Referrer();
 
-        List<Movie> recommendations = r.recommendations(BBDD.JUAN);
+        List<Movie> recommendations = r.recommendations(LDB.JUAN);
 
-        assertFalse(recommendations.contains(BBDD.ET));
+        assertFalse(recommendations.contains(LDB.ET));
     }
 
     @Test
     void test_format() {
         Referrer r = new Referrer();
 
-        String csv = new ExporterCSV().exportMovies(r.recommendations(BBDD.JUAN));
+        String csv = new ExporterCSV().exportMovies(r.recommendations(LDB.JUAN));
 
         String expected = "Salvar al soldado Ryan,Spielberg,belico";
 

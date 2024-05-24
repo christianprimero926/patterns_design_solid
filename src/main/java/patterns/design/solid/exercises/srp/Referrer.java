@@ -7,7 +7,7 @@ public class Referrer {
     public List<Movie> recommendations(Client client) {
         List<Movie> recommended = new ArrayList<>();
         for (Movie favorite : client.favorites()) {
-            recommended.addAll(BBDD.MOVIES_BY_DIRECTOR.get(favorite.director()));
+            recommended.addAll(LDB.MOVIES_BY_DIRECTOR.get(favorite.director()));
         }
         /*recommended = recommended.stream()
                 .filter(movie -> !client.favorites().contains(movie))
