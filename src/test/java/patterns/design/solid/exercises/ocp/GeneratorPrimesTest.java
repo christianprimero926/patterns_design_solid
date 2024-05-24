@@ -12,7 +12,7 @@ class GeneratorPrimesTest {
     @Test
     void test_order_natural() {
 
-        GeneratorPrimes generator = new GeneratorPrimes();
+        GeneratorPrimes generator = new GeneratorPrimes(new NaturalOrderStrategy());
         List<Integer> expected = Arrays.asList(2, 3, 5, 7, 11, 13);
 
         assertThat(generator.primes(15), is(expected));
@@ -21,7 +21,7 @@ class GeneratorPrimesTest {
     @Test
     void test_order_inverse() {
 
-        GeneratorPrimes generator = new GeneratorPrimes();
+        GeneratorPrimes generator = new GeneratorPrimes(new InverseOrderStrategy());
         List<Integer> expected = Arrays.asList(13, 11, 7, 5, 3, 2);
 
         assertThat(generator.primes(15), is(expected));
