@@ -12,7 +12,7 @@ public class BBDD {
     public static final String DIRECTOR_SPIELBERG = "Spielberg";
 
     public static final Movie ET = new Movie("ET",GENRE_FANTASTIC, DIRECTOR_SPIELBERG);
-    public static final Movie RYAN_SOLDIER = new Movie("Salvar al soldado ryan",GENRE_BELIC, DIRECTOR_SPIELBERG);
+    public static final Movie RYAN_SOLDIER = new Movie("Salvar al soldado Ryan",GENRE_BELIC, DIRECTOR_SPIELBERG);
 
     public static final Movie [] ALL = {ET, RYAN_SOLDIER};
 
