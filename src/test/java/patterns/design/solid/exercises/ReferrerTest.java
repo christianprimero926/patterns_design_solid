@@ -21,7 +21,7 @@ class ReferrerTest {
     public void test_format() {
         Referrer r = new Referrer();
 
-        String csv = r.recommendationsCSV(BBDD.JUAN);
+        String csv = new ExporterCSV().exportMovies(r.recommendations(BBDD.JUAN));
 
         String expected = "Salvar al soldado Ryan,Spielberg,belico";
 

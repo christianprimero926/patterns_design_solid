@@ -10,17 +10,11 @@ public class Referrer {
         for (Movie favorite : client.favorites()) {
             recommended.addAll(BBDD.MOVIES_BY_DIRECTOR.get(favorite.director()));
         }
-        recommended = recommended.stream()
+        /*recommended = recommended.stream()
                 .filter(movie -> !client.favorites().contains(movie))
                 .distinct()
-                .collect(Collectors.toList());
-        //recommended.removeAll(client.favorites());
+                .collect(Collectors.toList());*/
+        recommended.removeAll(client.favorites());
         return recommended;
-    }
-
-    public String recommendationsCSV(Client client) {
-        return recommendations(client).stream()
-                .map(p -> (p.tittle() + "," + p.director() + "," + p.genre()))
-                .collect(Collectors.joining("\n"));
     }
 }
