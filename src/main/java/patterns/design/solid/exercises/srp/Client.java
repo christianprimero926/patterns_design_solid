@@ -1,4 +1,4 @@
-package patterns.design.solid.exercises;
+package patterns.design.solid.exercises.srp;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,8 +1,7 @@
-package patterns.design.solid.exercises;
+package patterns.design.solid.exercises.srp;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Referrer {
     public List<Movie> recommendations(Client client) {
