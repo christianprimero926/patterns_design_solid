@@ -4,12 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class ReferrerTest {
 
     @Test
-    public void test() {
+    void test() {
         Referrer r = new Referrer();
 
         List<Movie> recommendations = r.recommendations(BBDD.JUAN);
@@ -18,7 +19,7 @@ class ReferrerTest {
     }
 
     @Test
-    public void test_format() {
+    void test_format() {
         Referrer r = new Referrer();
 
         String csv = new ExporterCSV().exportMovies(r.recommendations(BBDD.JUAN));
