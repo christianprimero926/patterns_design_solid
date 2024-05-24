@@ -1,6 +1,5 @@
 package patterns.design.solid.exercises.ocp;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
