@@ -9,7 +9,7 @@ class ProcessorTextTest {
     @Test
     void test_simple() {
 
-        ProcessorText processor = new ProcessorText();
+        BasicTextProcessor processor = new ProcessorText();
 
         processor.newWord("No");
         processor.newWord("himporta");
@@ -22,13 +22,13 @@ class ProcessorTextTest {
     @Test
     void test_with_language() {
 
-        ProcessorText procesador = new ProcessorText();
+        AdvancedTextProcessor processor = new ProcessorText();
 
-        procesador.newWord("Tengo");
-        procesador.newWord("hambre");
+        processor.newWord("Tengo");
+        processor.newWord("hambre");
 
-        assertEquals("Tengo hambre", procesador.text());
+        assertEquals("Tengo hambre", processor.text());
 
-        assertTrue(procesador.correct(Language.ES));
+        assertTrue(processor.correct(Language.ES));
     }
 }

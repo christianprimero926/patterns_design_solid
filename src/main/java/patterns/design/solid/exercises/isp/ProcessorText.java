@@ -3,17 +3,11 @@ package patterns.design.solid.exercises.isp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessorText {
+public class ProcessorText implements AdvancedTextProcessor {
     private final List<String> text = new ArrayList<>();
 
-    public void newWord(String word) {
-        text.add(word);
-    }
 
-    public String text() {
-        return String.join(" ", text);
-    }
-
+    @Override
     public boolean correct(Language language) {
         for (String word : text) {
             if (!language.diccionario.contains(word.toLowerCase())) {
@@ -21,5 +15,15 @@ public class ProcessorText {
             }
         }
         return true;
+    }
+
+    @Override
+    public void newWord(String word) {
+        text.add(word);
+    }
+
+    @Override
+    public String text() {
+        return String.join(" ", text);
     }
 }
