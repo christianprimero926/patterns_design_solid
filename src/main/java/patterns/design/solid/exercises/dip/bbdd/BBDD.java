@@ -9,8 +9,8 @@ public class BBDD {
 
     static {
         Map<String, Integer> stocTiendaNorte = new HashMap<>();
-        stocTiendaNorte.put("lampara",600);
-        stocTiendaNorte.put("mesa",500);
+        stocTiendaNorte.put("lampara", 600);
+        stocTiendaNorte.put("mesa", 500);
 
         stacks.put("tienda norte", stocTiendaNorte);
     }
