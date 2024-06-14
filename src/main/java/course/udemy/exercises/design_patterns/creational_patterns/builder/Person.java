@@ -1,74 +1,78 @@
 package course.udemy.exercises.design_patterns.creational_patterns.builder;
 
-import lombok.Builder;
 
+import lombok.Getter;
+import lombok.ToString;
 
+@Getter
+@ToString
 public class Person {
 
-    private String nombre;
-    private int edad;
-    private String municipio;
-    private String colegio;
-    private String lugarTrabajo;
+    private String name;
+    private int age;
+    private String municipality;
+    private String school;
+    private String placeWork;
 
-    private Person() {}
+    private Person() {
+    }
 
 
     public static class Builder {
-        private Person persona;
+        private final Person person;
 
-        public Builder(String nombre) {
-            persona = new Person();
-            persona.nombre = nombre;
+        public Builder(String name) {
+            person = new Person();
+            person.name = name;
         }
 
-        public Builder setMunicipio (String municipio) {
-            persona.municipio = municipio;
+        public Builder setMunicipality(String municipality) {
+            person.municipality = municipality;
             return this;
         }
 
-        public BuilderMayor setMayor(int edad) {
-            if (edad < 18) throw new IllegalArgumentException("es menor de edad " + edad);
-            persona.edad = edad;
-            return new Person.BuilderMayor(persona);
+        public BuilderElder setOlder(int age) {
+            if (age < 18) throw new IllegalArgumentException("es menor de edad " + age);
+            person.age = age;
+            return new BuilderElder(person);
         }
 
-        public BuilderMenor setMenor(int edad) {
-            if (edad >= 18) throw new IllegalArgumentException("es mayor de edad " + edad);
-            persona.edad = edad;
-            return new Person.BuilderMenor(persona);
+        public BuilderChild setMinor(int age) {
+            if (age >= 18) throw new IllegalArgumentException("es mayor de edad " + age);
+            person.age = age;
+            return new BuilderChild(person);
         }
 
     }
 
-    public static class BuilderMayor {
+    public static class BuilderElder {
 
-        private Person persona;
+        private final Person person;
 
-        private BuilderMayor (Person persona) {
-            this.persona = persona;
+        private BuilderElder(Person persona) {
+            this.person = persona;
         }
 
-        public BuilderMayor setLugarTrabajo (String lugarTrabajo) {
-            this.persona.lugarTrabajo = lugarTrabajo;
+        public BuilderElder setPlaceWork(String placeWork) {
+            this.person.placeWork = placeWork;
             return this;
         }
 
         public Person build() {
-            return persona;
+            return person;
         }
     }
 
-    public static class BuilderMenor {
+    public static class BuilderChild {
 
-        private Person persona;
+        private final Person persona;
 
-        private BuilderMenor (Person persona) {
+        private BuilderChild(Person persona) {
             this.persona = persona;
         }
 
-        public BuilderMenor setColegio(String colegio) {
-            this.persona.colegio = colegio;
+        public BuilderChild setSchool(String school) {
+            this.persona.school = school;
             return this;
         }
 

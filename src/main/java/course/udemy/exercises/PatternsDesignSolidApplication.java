@@ -4,30 +4,39 @@ import course.udemy.exercises.design_patterns.creational_patterns.builder.Person
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.logging.Logger;
+
 @SpringBootApplication
 public class PatternsDesignSolidApplication {
 
     public static void main(String[] args) {
+        Logger logger = Logger.getLogger(PatternsDesignSolidApplication.class.getName());
+
         SpringApplication.run(PatternsDesignSolidApplication.class, args);
 
-        Person madre = new Person.Builder("Maria")
-                .setMunicipio("Selva")
-                .setMayor(37)
-                .setLugarTrabajo("Google")
+        Person mother = new Person.Builder("Maria")
+                .setMunicipality("Selva")
+                .setOlder(37)
+                .setPlaceWork("Google")
                 .build();
+        logger.info("Mayor: " + mother.getName() + ", " + mother.getAge() + ", " + mother.getPlaceWork());
 
-        Person hijo = new Person.Builder("Pedro")
-                .setMenor(4)
-                .setColegio("Colegio de Selva")
+        Person son = new Person.Builder("Pedro")
+                .setMinor(4)
+                .setSchool("Colegio de Selva")
                 .build();
+        logger.info("Menor: " + son.getName() + ", " + son.getAge() + ", " + son.getSchool());
+
+        /*Person mal = new Person.Builder("Luisa")
+                .setMayor(20)
+                .setColegio("Colegio de Villa Arriba")
+                .build();*/
+//        logger.info("Mal: " + mal.getName() + ", " + mal.getAge() + ", " + mal.getSchool());
+
 
         // esta codigo NO debe compilar
-		/*
-		Persona mal = new Persona.Builder("Luisa")
-				    .setMayor(20)
-				    .setColegio("Colegio de Villa Arriba")
-				    .build();
-        */
+
+
     }
 
 }
