@@ -1,11 +1,14 @@
 package course.udemy.exercises.design_patterns.creational_patterns.builder;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
 @ToString
+@NoArgsConstructor
 public class Person {
 
     private String name;
@@ -13,9 +16,6 @@ public class Person {
     private String municipality;
     private String school;
     private String placeWork;
-
-    private Person() {
-    }
 
 
     public static class Builder {
@@ -31,29 +31,26 @@ public class Person {
             return this;
         }
 
-        public BuilderElder setOlder(int age) {
+        public BuilderOlder setOlder(int age) {
             if (age < 18) throw new IllegalArgumentException("es menor de edad " + age);
             person.age = age;
-            return new BuilderElder(person);
+            return new BuilderOlder(person);
         }
 
-        public BuilderChild setMinor(int age) {
+        public BuilderMinor setMinor(int age) {
             if (age >= 18) throw new IllegalArgumentException("es mayor de edad " + age);
             person.age = age;
-            return new BuilderChild(person);
+            return new BuilderMinor(person);
         }
 
     }
 
-    public static class BuilderElder {
+    @AllArgsConstructor
+    public static class BuilderOlder {
 
         private final Person person;
 
-        private BuilderElder(Person persona) {
-            this.person = persona;
-        }
-
-        public BuilderElder setPlaceWork(String placeWork) {
+        public BuilderOlder setPlaceWork(String placeWork) {
             this.person.placeWork = placeWork;
             return this;
         }
@@ -63,15 +60,12 @@ public class Person {
         }
     }
 
-    public static class BuilderChild {
+    @AllArgsConstructor
+    public static class BuilderMinor {
 
         private final Person persona;
 
-        private BuilderChild(Person persona) {
-            this.persona = persona;
-        }
-
-        public BuilderChild setSchool(String school) {
+        public BuilderMinor setSchool(String school) {
             this.persona.school = school;
             return this;
         }

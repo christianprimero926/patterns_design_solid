@@ -27,14 +27,13 @@ public class PatternsDesignSolidApplication {
                 .build();
         logger.info("Menor: " + son.getName() + ", " + son.getAge() + ", " + son.getSchool());
 
-        /*Person mal = new Person.Builder("Luisa")
-                .setMayor(20)
-                .setColegio("Colegio de Villa Arriba")
-                .build();*/
-//        logger.info("Mal: " + mal.getName() + ", " + mal.getAge() + ", " + mal.getSchool());
-
-
         // esta codigo NO debe compilar
+        /*Person mal = new Person.Builder("Luisa")
+                .setOlder(20)
+                .setSchool("Colegio de Villa Arriba")
+                .build();
+        logger.info("Mal: " + mal.getName() + ", " + mal.getAge() + ", " + mal.getSchool());
+*/
 
 
     }
