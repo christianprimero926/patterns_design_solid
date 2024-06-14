@@ -1,6 +1,6 @@
 package course.udemy.exercises.design_patterns.creational_patterns.abstract_factory;
 
-public class QuestionsEn implements Questions{
+public class QuestionsEn implements Questions {
     @Override
     public String questionHour() {
         return "what time is it?";
