@@ -7,26 +7,26 @@ import static org.junit.jupiter.api.Assertions.*;
 class MultiLanguageTest {
     @Test
     void test_es() {
-        Questions questions = new QuestionsEs();
+        MessageFactory factory = new MessagesFactoryEs();
 
+        Questions questions = factory.createQuestions();
         assertEquals("¿que hora es?", questions.questionHour() );
         assertEquals("¿que tiempo hace?", questions.questionTime() );
 
-        Greetings greetings = new GreetingsEs();
-
+        Greetings greetings = factory.createGreetings();
         assertEquals("buenos días", greetings.goodMorning());
         assertEquals("buenas tardes", greetings.goodAfternoon());
     }
 
     @Test
     void test_en() {
-        Questions questions = new QuestionsEn();
+        MessageFactory factory = new MessagesFactoryEn();
 
+        Questions questions = factory.createQuestions();
         assertEquals("what time is it?", questions.questionHour() );
         assertEquals("how is the weather?", questions.questionTime() );
 
-        Greetings greetings = new GreetingsEn();
-
+        Greetings greetings = factory.createGreetings();
         assertEquals("good morning", greetings.goodMorning());
         assertEquals("good afternoon", greetings.goodAfternoon());
     }
